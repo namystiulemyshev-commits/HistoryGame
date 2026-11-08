@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>History Game - Chapter 0</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Chapter 0: The Assignment</h1>
+  <p>WASD / Arrow Keys: Move | E: Interact</p>
+
+  <div id="game">
+    <canvas id="world" width="800" height="480"></canvas>
+
+    <div id="dialogue" class="hidden">
+      <h3 id="speaker"></h3>
+      <p id="message"></p>
+      <div id="choices"></div>
+      <button id="continue" class="hidden">Continue</button>
+    </div>
+  </div>
+
+  <p id="objective">Objective: Talk to your professor.</p>
+
+  <script src="game.js"></script>
+</body>
+</html>
