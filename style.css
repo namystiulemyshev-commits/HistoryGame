@@ -71,3 +71,518 @@ button:hover {
 #objective {
   color: #e9cd8b;
 }
+
+#dialogue {
+  position: absolute;
+  bottom: 12px;
+  left: 3%;
+  width: 94%;
+  box-sizing: border-box;
+
+  background: rgba(15, 20, 40, 0.96);
+  border: 3px solid #c9a45c;
+  padding: 12px;
+  z-index: 10;
+}
+
+.hidden {
+  display: none;
+}
+
+.dialogue-inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+
+.dialogue-portrait-box {
+  width: 130px;
+  min-width: 130px;
+  height: 130px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border: 2px solid #c9a45c;
+  background: #1b203d;
+}
+
+#portrait {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+
+.dialogue-content {
+  flex: 1;
+  min-width: 0;
+}
+
+#speaker {
+  font-size: 32px;
+  font-weight: bold;
+  color: #f0d58a;
+  margin-bottom: 16px;
+}
+
+#message {
+  font-size: 20px;
+  color: white;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+#choices {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+#choices button,
+#continue {
+  font-size: 20px;
+  padding: 14px 18px;
+  background: #40496a;
+  color: white;
+  border: 2px solid #6c7698;
+  cursor: pointer;
+  text-align: left;
+}
+
+#choices button:hover,
+#continue:hover {
+  background: #556086;
+}
+
+
+#chapterTransition {
+  position: absolute;
+  inset: 0;
+  background: #080d18;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  z-index: 20;
+  animation: chapterFadeIn 1.5s ease-in-out;
+}
+.chapter-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+@keyframes chapterFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+.chapter-label {
+  font-size: 14px;
+  letter-spacing: 5px;
+  color: #b8a273;
+}
+
+#chapterTransition h2 {
+  font-size: 42px;
+  margin: 14px 0;
+}
+
+#chapterTransition p {
+  font-size: 17px;
+  color: #b1bacb;
+}
+
+@keyframes chapterFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+.egypt-scene {
+  position: relative;
+  width: 100%;
+  max-height: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.egypt-scene .chapter-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  image-rendering: pixelated;
+}
+
+#egyptEffects {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  pointer-events: none;
+}
+
+
+.egypt-scene {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#egyptEffects {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  aspect-ratio: 16 / 9;
+  image-rendering: pixelated;
+}
+
+
+#enterEgyptBtn {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  background: #2b2532;
+  color: #f0d58a;
+  border: 2px solid #d3a55d;
+
+  padding: 12px 28px;
+  font-size: 18px;
+  font-weight: bold;
+
+  cursor: pointer;
+  z-index: 25;
+}
+
+#enterEgyptBtn:hover {
+  background: #45354a;
+}
+
+.capture-panel {
+  width: 80%;
+  max-width: 650px;
+  background: rgba(10, 12, 20, 0.96);
+  border: 3px solid #d2a65c;
+  padding: 28px;
+  text-align: center;
+  color: white;
+}
+
+.capture-label {
+  font-size: 14px;
+  letter-spacing: 4px;
+  color: #d2a65c;
+  margin-bottom: 10px;
+}
+
+.capture-panel h2 {
+  margin: 10px 0 14px;
+  color: #f0d58a;
+  font-size: 30px;
+}
+
+.capture-panel p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #d8dde8;
+}
+
+#captureContinueBtn {
+  background: #3b3240;
+  color: #f0d58a;
+  border: 2px solid #d2a65c;
+  padding: 12px 24px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+#captureContinueBtn:hover {
+  background: #514257;
+}
+
+
+/* Royal Gate minigame */
+
+#guardGameOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(6, 9, 19, 0.88);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.guard-game-panel {
+  width: 100%;
+  max-width: 650px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 28px;
+  box-sizing: border-box;
+  background: #191e30;
+  border: 4px solid #d7ad5d;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
+  color: white;
+  text-align: center;
+}
+
+.guard-game-header {
+  color: #d9b66f;
+  letter-spacing: 4px;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.guard-game-panel h2 {
+  color: #f0d58a;
+  margin: 12px 0 22px;
+  font-size: 30px;
+}
+
+.guard-game-panel h3 {
+  color: #e9cd8b;
+  font-size: 18px;
+}
+
+.guard-game-dialogue {
+  background: #2b3045;
+  border-left: 4px solid #d7ad5d;
+  padding: 18px;
+  margin: 18px 0;
+  text-align: left;
+  line-height: 1.6;
+}
+
+.guard-game-dialogue strong,
+.guard-game-rule strong {
+  color: #f0d58a;
+}
+
+.guard-game-rule {
+  background: #3c3325;
+  border: 2px solid #94763e;
+  padding: 18px;
+  margin: 20px 0;
+  line-height: 1.5;
+}
+
+.guard-game-button {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  margin: 10px 0;
+  background: #39435f;
+  border: 2px solid #697493;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.guard-game-button:hover:not(:disabled) {
+  background: #566689;
+  border-color: #f0d58a;
+}
+
+.guard-game-button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.guard-game-score {
+  color: #f0d58a;
+  font-size: 52px;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+
+/* Inspection findings */
+
+.guard-game-evidence {
+  margin: 16px 0;
+  padding: 20px;
+  background: #302c25;
+  border: 2px solid #c7a35f;
+  color: #f2e5cb;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.guard-game-evidence strong {
+  color: #f0d58a;
+  letter-spacing: 2px;
+}
+
+#inspectionHint {
+  color: #b6bed1;
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+
+
+/* ===================================
+   ROYAL GATE - COMPACT LAYOUT FIX
+   =================================== */
+
+#guardGameOverlay {
+  padding: 12px;
+  overflow: hidden;
+}
+
+.guard-game-panel {
+  width: 100%;
+  max-width: 720px;
+  max-height: calc(100dvh - 24px);
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding: 16px 22px;
+  scrollbar-gutter: stable;
+}
+
+/* Smaller heading */
+.guard-game-header {
+  font-size: 12px;
+  letter-spacing: 3px;
+  margin-bottom: 5px;
+}
+
+.guard-game-progress {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.guard-game-panel h2 {
+  font-size: 25px;
+  margin: 6px 0 12px;
+}
+
+.guard-game-panel h3 {
+  font-size: 17px;
+  margin: 12px 0 8px;
+}
+
+/* Traveler statement */
+.guard-game-dialogue {
+  padding: 10px 14px;
+  margin: 8px 0;
+  line-height: 1.4;
+  font-size: 15px;
+}
+
+/* Security rule */
+.guard-game-rule {
+  padding: 10px 14px;
+  margin: 8px 0;
+  line-height: 1.4;
+  font-size: 15px;
+}
+
+/* Evidence */
+.guard-game-evidence {
+  padding: 10px 14px;
+  margin: 8px 0;
+  line-height: 1.4;
+  font-size: 14px;
+}
+
+.guard-game-dialogue p,
+.guard-game-rule p,
+.guard-game-evidence p {
+  margin: 6px 0;
+}
+
+/* Smaller buttons */
+.guard-game-button {
+  padding: 9px 12px;
+  margin: 6px 0;
+  font-size: 14px;
+  min-height: 38px;
+}
+
+#inspectionHint {
+  font-size: 13px;
+  margin: 6px 0;
+}
+
+/* Compact results */
+.guard-game-score {
+  font-size: 38px;
+  margin: 12px 0;
+}
+
+/* Mobile screens */
+@media (max-width: 600px) {
+  .guard-game-panel {
+    padding: 12px;
+    max-width: 100%;
+  }
+
+  .guard-game-panel h2 {
+    font-size: 22px;
+  }
+}
+
+
+/* Back button - Royal Gate */
+
+.guard-game-panel {
+  position: relative;
+}
+
+#guardBackBtn {
+  position: sticky;
+  top: 0;
+  left: 0;
+
+  display: block;
+  width: fit-content;
+
+  background: #2c344c;
+  color: #f0d58a;
+
+  border: 2px solid #d7ad5d;
+  border-radius: 5px;
+
+  padding: 7px 15px;
+  margin: 0 0 10px;
+
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+
+  z-index: 5;
+}
+
+#guardBackBtn:hover {
+  background: #465373;
+}
