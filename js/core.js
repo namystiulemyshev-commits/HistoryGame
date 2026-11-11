@@ -39,6 +39,16 @@ function distance(a, b) {
 // Keyboard controls
 document.addEventListener("keydown", (e) => {
   const key = e.key.toLowerCase();
+  // Press P while in Egypt to enter the throne room.
+if (
+  key === "p" &&
+  !e.repeat &&
+  egyptArrivalActive &&
+  typeof startEgyptThrone === "function"
+) {
+  startEgyptThrone();
+  return;
+}
 
   if (
     ["arrowup", "arrowdown", "arrowleft", "arrowright", " "]
@@ -59,16 +69,27 @@ document.addEventListener("keydown", (e) => {
   keys[key] = true;
 
   // E = Interact
-  if (key === "e" && !e.repeat && !talking) {
-    if (
-      typeof egyptArrivalActive !== "undefined" &&
-      egyptArrivalActive
-    ) {
-      interactEgyptGuard();
-    } else {
-      interact();
-    }
+  
+if (key === "e" && !e.repeat && !talking) {
+
+  if (secretChamberActive) {
+    // Interact with chamber symbols and objects
+    interactSecretChamber();
+
+  } else if (egyptThroneActive) {
+    // Search for the secret entrance
+    interactSecretEntrance();
+
+  } else if (egyptArrivalActive) {
+    // Existing guards interaction
+    interactEgyptGuard();
+
+  } else {
+    // Chapter 0 classroom interaction
+    interact();
   }
+}
+
 });
 
 document.addEventListener("keyup", (e) => {

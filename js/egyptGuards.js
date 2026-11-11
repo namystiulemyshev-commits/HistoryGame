@@ -221,3 +221,40 @@ function canEnterRoyalArea(x, y) {
 
   return true;
 }
+
+function startGuardFinalDialogue() {
+  showDialogue(
+    "Royal Guard",
+    "You have passed our trial, stranger. Your judgment has impressed us.",
+    [],
+    () => {
+      showDialogue(
+        "Student",
+        "Does that mean I can finally enter the palace?",
+        [],
+        () => {
+          showDialogue(
+            "Second Guard",
+            "Yes. The royal court has been informed of your arrival. You may proceed.",
+            [],
+            () => {
+              showDialogue(
+                "Royal Guard",
+                "Step forward. The Pharaoh awaits you beyond these gates.",
+                [],
+                () => {
+                  // Close the final conversation
+                  closeDialogue();
+
+                  // Transition to the next map
+                  startEgyptThrone();
+                }
+              );
+            }
+          );
+        }
+      );
+    }
+  );
+}
+

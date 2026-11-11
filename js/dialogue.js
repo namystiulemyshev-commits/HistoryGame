@@ -3,7 +3,8 @@ const portraits = {
   "Student": "assets/student_portrait.png",
 
   "Royal Guard": "assets/chapter1/royal_guard_portrait.png",
-  "Second Guard": "assets/chapter1/royal_guard_portrait.png"
+  "Second Guard": "assets/chapter1/royal_guard_portrait.png",
+  "Pharaoh":"assets/chapter1/pharaoh_portrait.png"
 };
 
 

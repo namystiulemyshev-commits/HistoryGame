@@ -76,29 +76,31 @@ function updateEgyptArrival() {
 
   // Move the player
   if (length > 0) {
-    const moveX = dx / length * egyptPlayer.speed;
-    const moveY = dy / length * egyptPlayer.speed;
+  const moveX = dx / length * egyptPlayer.speed;
+  const moveY = dy / length * egyptPlayer.speed;
 
-    // Horizontal collision
-    const nextX = egyptPlayer.x + moveX;
+  // Try horizontal movement
+  const nextX = egyptPlayer.x + moveX;
 
-    if (
-      canMovePastGuards(nextX, egyptPlayer.y) &&
-      canEnterRoyalArea(nextX, egyptPlayer.y)
-    ) {
-      egyptPlayer.x = nextX;
-    }
-
-    // Vertical collision
-    const nextY = egyptPlayer.y + moveY;
-
-    if (
-      canMovePastGuards(egyptPlayer.x, nextY) &&
-      canEnterRoyalArea(egyptPlayer.x, nextY)
-    ) {
-      egyptPlayer.y = nextY;
-    }
+  if (
+    canMoveInEgypt(nextX, egyptPlayer.y) &&
+    canMovePastGuards(nextX, egyptPlayer.y) &&
+    canEnterRoyalArea(nextX, egyptPlayer.y)
+  ) {
+    egyptPlayer.x = nextX;
   }
+
+  // Try vertical movement
+  const nextY = egyptPlayer.y + moveY;
+
+  if (
+    canMoveInEgypt(egyptPlayer.x, nextY) &&
+    canMovePastGuards(egyptPlayer.x, nextY) &&
+    canEnterRoyalArea(egyptPlayer.x, nextY)
+  ) {
+    egyptPlayer.y = nextY;
+  }
+}
 
   // Map boundaries
   egyptPlayer.x = Math.max(
@@ -141,6 +143,7 @@ function drawEgyptArrival() {
 
   // Draw student and guards
   drawEgyptCharacters();
+  drawEgyptCollisions();
 
   const minigameOpen =
     typeof guardMinigameActive !== "undefined" &&
@@ -230,4 +233,87 @@ function drawEgyptCharacters() {
   for (const character of characters) {
     character.draw();
   }
+}
+const egyptWalls=[
+  // Top left stones 
+  { x: 0, y: 0, w: 290, h: 155 },
+  //Top right river with rocks
+  { x: 515, y: 0, w: 285, h: 155 },
+  //Left market 
+  { x: 0, y: 170, w: 155, h: 115 },
+  //Right building 
+  { x: 615, y: 145, w: 185, h: 145 },
+  //Sphinx
+  { x: 0, y: 315, w: 225, h: 165 },
+  //Bottom right 
+  { x: 615, y: 330, w: 185, h: 150 },
+  //Trees
+  { x: 240, y: 300, w: 20, h: 30 }
+
+];
+
+function canMoveInEgypt(x, y) {
+  const radius = 9;
+
+  // Check map boundaries
+  if (
+    x - radius < 0 ||
+    x + radius > canvas.width ||
+    y - radius < 0 ||
+    y + radius > canvas.height
+  ) {
+    return false;
+  }
+
+  // Check solid objects
+  for (const wall of egyptWalls) {
+    const closestX = Math.max(
+      wall.x,
+      Math.min(x, wall.x + wall.w)
+    );
+
+    const closestY = Math.max(
+      wall.y,
+      Math.min(y, wall.y + wall.h)
+    );
+
+    const dx = x - closestX;
+    const dy = y - closestY;
+
+    if (dx * dx + dy * dy < radius * radius) {
+      return false;
+    }
+  }
+  return true;}
+
+
+
+const showEgyptCollisions = false;
+
+function drawEgyptCollisions() {
+  if (!showEgyptCollisions) return;
+
+  ctx.save();
+
+  ctx.fillStyle = "rgba(255, 0, 0, 0.20)";
+  ctx.strokeStyle = "red";
+  ctx.lineWidth = 2;
+
+  for (const wall of egyptWalls) {
+    ctx.fillRect(
+      wall.x,
+      wall.y,
+      wall.w,
+      wall.h
+    );
+
+    ctx.strokeRect(
+      wall.x,
+      wall.y,
+      wall.w,
+      wall.h
+    );
+  }
+
+  ctx.restore();
 }

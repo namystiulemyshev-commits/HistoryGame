@@ -280,20 +280,23 @@ function showGuardGameResults() {
   `;
 
  
-  document.getElementById("finishTrial").onclick = () => {
-    if (passed) {
-      guardsEncountered = true;
+  
+document.getElementById("finishTrial").onclick = () => {
+  if (passed) {
+  guardsEncountered = true;
 
-      objective.textContent =
-        "Objective: Find the royal adviser.";
+  closeGuardMinigame();
 
-      closeGuardMinigame();
-    } else {
-      guardQuestionIndex = 0;
-      guardCorrectAnswers = 0;
-      showGuardGameIntro();
-    }
-  };
+  // Start the final conversation with the guards
+  startGuardFinalDialogue();
+} else {
+    guardQuestionIndex = 0;
+    guardCorrectAnswers = 0;
+
+    showGuardGameIntro();
+  }
+};
+
 
   // Always show results from the top
   document.querySelector(".guard-game-panel").scrollTop = 0;
