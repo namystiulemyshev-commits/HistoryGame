@@ -134,6 +134,9 @@ function drawPersia() {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
   }
 
+  drawPersiaNPCs();
+  drawPersiaStudent();
+
   drawPersiaStudent();
 }
 

@@ -903,3 +903,205 @@ button:hover {
     transform: scale(1);
   }
 }
+
+
+/* =====================================
+   PERSIAN MAP QUIZ
+   ===================================== */
+
+.persia-quiz.hidden,
+.persia-answer.hidden {
+  display: none !important;
+}
+
+.persia-quiz {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  background: rgba(4, 9, 18, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+  overflow-y: auto;
+}
+
+.persia-quiz-panel {
+  box-sizing: border-box;
+  width: min(100%, 1000px);
+  max-height: 95vh;
+  overflow-y: auto;
+  background: #121923;
+  border: 2px solid #d7ae5e;
+  border-radius: 12px;
+  color: #f2eee4;
+  padding: 20px;
+  text-align: left;
+}
+
+.persia-quiz-heading,
+.persia-quiz-toolbar,
+.persia-quiz-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.persia-quiz-heading small {
+  color: #d7ae5e;
+  letter-spacing: 3px;
+}
+
+.persia-quiz-heading h2 {
+  color: #f3d18f;
+  margin: 6px 0;
+  font-size: 28px;
+}
+
+.persia-quiz-heading p {
+  margin: 6px 0 16px;
+}
+
+.persia-quiz button {
+  padding: 9px 14px;
+  color: #171923;
+  background: #d7ae5e;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.persia-quiz button:hover {
+  background: #f1d28a;
+}
+
+.persia-quiz-toolbar {
+  margin: 12px 0;
+  color: #f3d18f;
+}
+
+.persia-map-container {
+  background: #8ebde6;
+  border: 2px solid #5a7593;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+#persiaWorldMap {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 900 / 520;
+  background: #8ebde6;
+  touch-action: manipulation;
+}
+
+.persia-country {
+  fill: #eee6cc;
+  stroke: #64717b;
+  stroke-width: 0.6;
+  vector-effect: non-scaling-stroke;
+  cursor: pointer;
+  transition: fill 0.12s ease;
+}
+
+.persia-country:hover {
+  fill: #d9c18a;
+}
+
+.persia-country.iran-found {
+  fill: #e2ad39;
+}
+
+.persia-country.correct-country {
+  fill: #399465;
+}
+
+.persia-country.wrong-country {
+  fill: #d15b56;
+}
+
+.persia-country.selected-country {
+  fill: #f6d17a;
+}
+
+.persia-answer {
+  margin-top: 14px;
+  padding: 12px;
+  background: #232f40;
+  border-radius: 6px;
+}
+
+.persia-answer label {
+  display: block;
+  margin-bottom: 8px;
+  color: #f3d18f;
+}
+
+#persiaCountryForm {
+  display: flex;
+  gap: 10px;
+}
+
+#persiaCountryInput {
+  flex: 1;
+  min-width: 0;
+  padding: 10px;
+  background: #101820;
+  border: 1px solid #748398;
+  border-radius: 4px;
+  color: white;
+  font-size: 16px;
+}
+
+#persiaQuizFeedback {
+  min-height: 22px;
+  color: #f3d18f;
+  margin: 14px 0;
+}
+
+.persia-quiz-footer {
+  border-top: 1px solid #434b55;
+  padding-top: 12px;
+}
+
+
+#persiaNPCDialogue {
+  position: fixed;
+  inset: 0;
+  z-index: 4500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.persia-npc-panel {
+  box-sizing: border-box;
+  width: min(90%, 520px);
+  padding: 24px;
+  border: 2px solid #d7ae5e;
+  border-radius: 10px;
+  background: #151b28;
+  color: white;
+  text-align: center;
+}
+
+.persia-npc-panel h3 {
+  color: #edc778;
+  margin-top: 0;
+}
+
+.persia-npc-panel button {
+  margin: 8px;
+  padding: 10px 14px;
+  background: #d7ae5e;
+  color: #171923;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}

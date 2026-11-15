@@ -33,6 +33,70 @@
 
   <p id="objective">Objective: Talk to your professor.</p></div>
 
+
+<!-- Chapter 2: Persian Geography Challenge -->
+<div id="persiaQuiz" class="persia-quiz hidden">
+  <div class="persia-quiz-panel">
+    <div class="persia-quiz-heading">
+      <div>
+        <small>THE ROYAL GUARD'S CHALLENGE</small>
+        <h2>The Seven Borders</h2>
+        <p id="persiaQuizInstruction">
+          Find Iran on the map.
+        </p>
+      </div>
+      <button id="persiaQuizClose" type="button">✕</button>
+    </div>
+
+    <div class="persia-quiz-toolbar">
+      <span id="persiaQuizScore">Find Iran first</span>
+      <div>
+        <button id="persiaZoomIn" type="button">+</button>
+        <button id="persiaZoomOut" type="button">−</button>
+        <button id="persiaZoomReset" type="button">
+          Reset view
+        </button>
+      </div>
+    </div>
+
+    <div class="persia-map-container">
+      <svg
+        id="persiaWorldMap"
+        viewBox="0 0 900 520"
+        role="img"
+        aria-label="Interactive country map"
+      ></svg>
+    </div>
+
+    <div id="persiaCountryAnswer" class="persia-answer hidden">
+      <label for="persiaCountryInput">
+        Which country did you select?
+      </label>
+      <form id="persiaCountryForm">
+        <input
+          id="persiaCountryInput"
+          type="text"
+          placeholder="Enter country name"
+          autocomplete="off"
+        >
+        <button type="submit">Confirm</button>
+      </form>
+    </div>
+
+    <p id="persiaQuizFeedback" aria-live="polite"></p>
+
+    <div class="persia-quiz-footer">
+      <button id="persiaQuizHint" type="button">
+        Ask for a hint
+      </button>
+      <button id="persiaQuizRestart" type="button">
+        Restart challenge
+      </button>
+    </div>
+  </div>
+</div>
+
+
   
 <script src="js/core.js"></script>
 <script src="js/collision.js"></script>
@@ -48,6 +112,8 @@
 <script src="js/pharaohWordle.js"></script>
 <script src="js/egyptSecretChamber.js"></script>
 <script src="js/persia.js"></script>
+<script src="js/persiaMapQuiz.js"></script>
+<script src="js/persiaNPCs.js"></script>
 <script src="js/main.js"></script>
 
 
